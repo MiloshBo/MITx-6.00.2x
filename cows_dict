@@ -1,0 +1,9 @@
+# choses pairs with waight under 10
+
+from itertools import combinations
+
+d = {'Maggie': 3, 'Herman': 7, 'Betsy': 9, 'Oreo': 6, 'Moo Moo': 3, 'Milkshake': 2, 
+     'Millie': 5, 'Lola': 2, 'Florence': 2, 'Henrietta': 9}
+combs = ({j: d[j] for j in i} for i in combinations(d, 2))
+qualifying = (row for row in combs if sum(row.values()) < 10)
+print(sorted(qualifying, key=lambda x: sum(x.values()), reverse=True))
